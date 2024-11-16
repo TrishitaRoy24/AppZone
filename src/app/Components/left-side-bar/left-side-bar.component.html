@@ -3,9 +3,22 @@
     <button class="logo">
       <mat-icon >view_headline</mat-icon>
     </button>
+    <div class="logo-text">App</div>
+    <button class="btn-close">
+      <mat-icon class="bg-white">close</mat-icon>
+    </button>
   </div>
-  <div class="logo-text">App</div>
-  <button class="btn-close">
-    <mat-icon>home</mat-icon>
-  </button>
+  <div class="sidenav-nav">
+    @for (item of menuItems; track $index) {
+      <li class="sidenav-nav-item">
+        <a class="side-nav-link" [routerLink]="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <!-- <mat-icon>{{menuItems.icon}}</mat-icon>
+          <span class="sidenav-link-text">{{menuItems.lable}}</span> -->
+
+          <mat-icon class="bg-white">dashboard</mat-icon>
+          <span class="sidenav-link-text">Dashboard</span>
+        </a>
+      </li>
+    }
+  </div>
 </div>
