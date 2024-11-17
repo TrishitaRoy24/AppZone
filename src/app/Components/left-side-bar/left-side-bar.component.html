@@ -11,8 +11,8 @@
   <div class="sidenav-nav">
     @for (item of menuItems; track $index) {
       <li class="sidenav-nav-item">
-        <a class="side-nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <mat-icon>{{item.icon}}</mat-icon>
+        <a class="sidenav-nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon class="sidenav-link-icon">{{item.icon}}</mat-icon>
           <span class="sidenav-link-text">{{item.lable}}</span>
         </a>
       </li>
