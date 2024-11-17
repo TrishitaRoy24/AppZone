@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
+interface items{
+  link: string;
+  lable: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-left-side-bar',
   standalone: true,
@@ -11,7 +17,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LeftSideBarComponent {
 
-  menuItems: any[] = [
+  menuItems: items[] = [
     {
       link: 'dashboard',
       lable: 'Dashboard',
@@ -25,7 +31,7 @@ export class LeftSideBarComponent {
     {
       link: 'settings',
       lable: 'Settings',
-      icon: 'setting'
+      icon: 'settings'
     }
   ]
 }
