@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
 
 import { LeftSideBarComponent } from './Components/left-side-bar/left-side-bar.component';
 import { MainBodyComponent } from './Components/main-body/main-body.component';
@@ -13,4 +12,10 @@ import { MainBodyComponent } from './Components/main-body/main-body.component';
 })
 export class AppComponent {
   title = 'AppZone';
+  isLeftSideCollapsed = signal<boolean>(false);
+
+  changeLeftSideBar(value: boolean) {
+    this.isLeftSideCollapsed.set(value);
+  }
+
 }

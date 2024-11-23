@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
@@ -11,11 +12,14 @@ interface items{
 @Component({
   selector: 'app-left-side-bar',
   standalone: true,
-  imports: [MatIconModule, RouterModule],
+  imports: [MatIconModule, RouterModule,CommonModule],
   templateUrl: './left-side-bar.component.html',
   styleUrl: './left-side-bar.component.scss'
 })
 export class LeftSideBarComponent {
+
+  isLeftSideCollapsed = input.required<boolean>();
+  changeLeftSideBar = output<boolean>();
 
   menuItems: items[] = [
     {
@@ -34,4 +38,8 @@ export class LeftSideBarComponent {
       icon: 'settings'
     }
   ]
+
+  openMenu() {
+    this.changeLeftSideBar.emit(!this.isLeftSideCollapsed());
+  }
 }
