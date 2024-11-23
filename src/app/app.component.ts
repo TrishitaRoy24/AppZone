@@ -12,9 +12,15 @@ import { MainBodyComponent } from './Components/main-body/main-body.component';
 })
 export class AppComponent {
   title = 'AppZone';
-  isLeftSideCollapsed = signal<boolean>(false);
+  collapsedValue = false;
+  isLeftSideCollapsed = signal<boolean>(this.collapsedValue);
+
+  constructor() {
+    this.collapsedValue = (localStorage.getItem('leftMenuCollapseState') == 'true') ? true : false;
+  }
 
   changeLeftSideBar(value: boolean) {
+    localStorage.setItem('leftMenuCollapseState', (value ? "true" : "false"));
     this.isLeftSideCollapsed.set(value);
   }
 
